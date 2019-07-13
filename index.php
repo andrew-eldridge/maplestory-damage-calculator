@@ -446,9 +446,9 @@
 		$estimatedSeconds = $estimatedTime % 60;
 		$estimatedTimeString = "{$estimatedMinutes}min {$estimatedSeconds}sec";
 		if ($estimatedMinutes <= 10) {
-			$mushroomGifUrl = "../../images/maple-mushroom.gif";
+			$mushroomGifUrl = "../../images/mushroom-neutral.gif";
 		} else {
-			$mushroomGifUrl = "../../images/maple-mushroom-sad.gif";
+			$mushroomGifUrl = "../../images/mushroom-sad.gif";
 		}
 	}
 
