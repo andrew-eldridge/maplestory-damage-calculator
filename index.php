@@ -1,6 +1,6 @@
 <?php
 
-	include_once "../../mysql-connect.php";
+	include_once "mysql-connect.php";
 	session_start();
 
 	// Some db test stuff
@@ -247,6 +247,7 @@
 				$attacksPerSecond = 18.2;
 				$overallPercent = 0.9826;
 				break;
+			// TODO: Evan
 			case "Evan":
 				$incompleteData = true;
 				break;
@@ -270,6 +271,7 @@
 				$attacksPerSecond = 11.2;
 				$overallPercent = 0.6252;
 				break;
+			// TODO: Fire/Poison Mage
 			case "Fire/Poison Mage":
 				$incompleteData = true;
 				break;
@@ -278,6 +280,7 @@
 				$attacksPerSecond = 11.1;
 				$overallPercent = 0.4195;
 				break;
+			// TODO: Illium
 			case "Illium":
 				$incompleteData = true;
 				break;
@@ -312,10 +315,12 @@
 				$attacksPerSecond = 16.3;
 				$overallPercent = 0.6466;
 				break;
+			// TODO: Cadena
 			case "Cadena":
 				$incompleteData = true;
 				break;
 			// Warriors
+            // TODO: Aran
 			case "Aran":
 				$incompleteData = true;
 				break;
@@ -334,9 +339,11 @@
 				$attacksPerSecond = 20.8;
 				$overallPercent = 0.8965;
 				break;
+			// TODO: Hayato
 			case "Hayato":
 				$incompleteData = true;
 				break;
+			// TODO: Kaiser
 			case "Kaiser":
 				$incompleteData = true;
 				break;
@@ -365,6 +372,7 @@
 				$attacksPerSecond = 2.4;
 				$overallPercent = 0.16;
 				break;
+			// TODO: Blaster
 			case "Blaster":
 				$incompleteData = true;
 				break;
@@ -384,6 +392,7 @@
 				$attacksPerSecond = 20.5;
 				$overallPercent = 0.4998;
 				break;
+			// TODO: Wind Archer
 			case "Wind Archer":
 				$incompleteData = true;
 				break;
@@ -392,6 +401,7 @@
 				$attacksPerSecond = 16.5;
 				$overallPercent = 0.5812;
 				break;
+			// TODO: Pathfinder
 			case "Pathfinder":
 				$incompleteData = true;
 				break;
@@ -401,6 +411,7 @@
 				$attacksPerSecond = 9.8;
 				$overallPercent = 0.5323;
 				break;
+			// TODO: Cannoneer
 			case "Cannoneer":
 				$incompleteData = true;
 				break;
@@ -434,6 +445,7 @@
 				$attacksPerSecond = 17.0;
 				$overallPercent = 0.5408;
 				break;
+			// TODO: Ark
 			case "Ark":
 				$incompleteData = true;
 				break;
