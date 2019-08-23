@@ -59,7 +59,7 @@ function enableClassSelect(classType) {
 	const pirates = ["Angelic Buster", "Cannoneer", "Jett", "Mechanic", "Buccaneer", "Corsair", "Shade", "Thunder Breaker", "Ark"];
 
 	// Map classes to their type
-	const classTypesNames = ["magicians", "thieves", "warriors", "bowmen", "pirates"];
+	const classTypesNames = ["Magician", "Thief", "Warrior", "Bowman", "Pirate"];
 	const classTypes = [magicians, thieves, warriors, bowmen, pirates];
 
 	// Get class select input
@@ -82,7 +82,6 @@ function enableClassSelect(classType) {
 				var opt = document.createElement("option");
 				opt.value = classes[j];
 				opt.innerHTML = classes[j];
-
 				classSelect.appendChild(opt);
 			}
 			break;
