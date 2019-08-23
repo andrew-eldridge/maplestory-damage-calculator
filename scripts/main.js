@@ -52,9 +52,12 @@ function fadeIn(hasPost) {
 function enableClassSelect(classType) {
 	let classSelect = document.getElementById("class");
 	console.log("Length: " + classSelect.length);
-	for (i=0; i<classSelect.options.length; i++) {
+	var classLen = classSelect.length;
+	for (var i=0; i<classLen; i++) {
 		if (!classSelect.options[i].classList.contains(classType)) {
 			classSelect.remove(i);
+			i--;
+			classLen--;
 		}
 	}
 	classSelect.disabled = false;
