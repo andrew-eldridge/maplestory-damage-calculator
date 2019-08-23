@@ -585,57 +585,7 @@
 				<option value="Pirate">Pirate</option>
 			</select>
 			<select class="disabled-select reg" id="class" name="class" disabled required>
-				<option class="Magician Thief Warrior Bowman Pirate" id="class-default-option" disabled selected value></option>
-				<!-- Magicians -->
-				<option class="Magician" value="Battle Mage">Battle Mage</option>
-				<option class="Magician" value="Beast Tamer">Beast Tamer</option>
-				<option class="Magician" value="Blaze Wizard">Blaze Wizard</option>
-				<option class="Magician" value="Evan">Evan</option>
-				<option class="Magician" value="Kanna">Kanna</option>
-				<option class="Magician" value="Luminous">Luminous</option>
-				<option class="Magician" value="Bishop">Bishop</option>
-				<option class="Magician" value="Ice/Lightning Mage">Ice/Lightning Mage</option>
-				<option class="Magician" value="Fire/Poison Mage">Fire/Poison Mage</option>
-				<option class="Magician" value="Kinesis">Kinesis</option>
-				<option class="Magician" value="Illium">Illium</option>
-				<!-- Thieves -->
-				<option class="Thief" value="Dual Blade">Dual Blade</option>
-				<option class="Thief" value="Night Walker">Night Walker</option>
-				<option class="Thief" value="Phantom">Phantom</option>
-				<option class="Thief" value="Shadower">Shadower</option>
-				<option class="Thief" value="Night Lord">Night Lord</option>
-				<option class="Thief" value="Xenon">Xenon</option>
-				<option class="Thief" value="Cadena">Cadena</option>
-				<!-- Warriors -->
-				<option class="Warrior" value="Aran">Aran</option>
-				<option class="Warrior" value="Dawn Warrior">Dawn Warrior</option>
-				<option class="Warrior" value="Demon Avenger">Demon Avenger</option>
-				<option class="Warrior" value="Demon Slayer">Demon Slayer</option>
-				<option class="Warrior" value="Hayato">Hayato</option>
-				<option class="Warrior" value="Kaiser">Kaiser</option>
-				<option class="Warrior" value="Mihile">Mihile</option>
-				<option class="Warrior" value="Dark Knight">Dark Knight</option>
-				<option class="Warrior" value="Hero">Hero</option>
-				<option class="Warrior" value="Paladin">Paladin</option>
-				<option class="Warrior" value="Zero">Zero</option>
-				<option class="Warrior" value="Blaster">Blaster</option>
-				<!-- Bowmen -->
-				<option class="Bowman" value="Marksman">Marksman</option>
-				<option class="Bowman" value="Bowmaster">Bowmaster</option>
-				<option class="Bowman" value="Wild Hunter">Wild Hunter</option>
-				<option class="Bowman" value="Wind Archer">Wind Archer</option>
-				<option class="Bowman" value="Mercedes">Mercedes</option>
-				<option class="Bowman" value="Pathfinder">Pathfinder</option>
-				<!-- Pirates -->
-				<option class="Pirate" value="Angelic Buster">Angelic Buster</option>
-				<option class="Pirate" value="Cannoneer">Cannoneer</option>
-				<option class="Pirate" value="Jett">Jett</option>
-				<option class="Pirate" value="Mechanic">Mechanic</option>
-				<option class="Pirate" value="Buccaneer">Buccaneer</option>
-				<option class="Pirate" value="Corsair">Corsair</option>
-				<option class="Pirate" value="Shade">Shade</option>
-				<option class="Pirate" value="Thunder Breaker">Thunder Breaker</option>
-				<option class="Pirate" value="Ark">Ark</option>
+				<option id="class-default-option" disabled selected value></option>
 			</select>
 			<input onfocusout="validate('skillPercent');" id="skillPercent" class="reg" type="number" name="skillPercent" placeholder="Skill Damage Percent" required><br>
 		</fieldset>

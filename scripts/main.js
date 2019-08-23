@@ -50,21 +50,51 @@ function fadeIn(hasPost) {
 }
 
 function enableClassSelect(classType) {
+
+	// Declare classes by type
+	const magicians = ["Battle Mage", "Beast Tamer", "Blaze Wizard", "Evan", "Kanna", "Luminous", "Bishop", "Ice/Lightning Mage", "Fire/Poison Mage", "Kinesis", "Illium"];
+	const thieves = ["Dual Blade", "Night Walker", "Phantom", "Shadower", "Night Lord", "Xenon", "Cadena"];
+	const warriors = ["Aran", "Dawn Warrior", "Demon Avenger", "Demon Slayer", "Hayato", "Kaiser", "Mihile", "Dark Knight", "Hero", "Paladin", "Zero", "Blaster"];
+	const bowmen = ["Marksman", "Bowmaster", "Wild Hunter", "Wind Archer", "Mercedes", "Pathfinder"];
+	const pirates = ["Angelic Buster", "Cannoneer", "Jett", "Mechanic", "Buccaneer", "Corsair", "Shade", "Thunder Breaker", "Ark"];
+
+	// Map classes to their type
+	const classTypesNames = ["magicians", "thieves", "warriors", "bowmen", "pirates"];
+	const classTypes = [magicians, thieves, warriors, bowmen, pirates];
+
+	// Get class select input
 	let classSelect = document.getElementById("class");
-	console.log("Length: " + classSelect.length);
-	var classLen = classSelect.length;
-	for (var i=0; i<classLen; i++) {
-		if (!classSelect.options[i].classList.contains(classType)) {
+
+	// Clear all options except default option
+	var length = classSelect.options.length;
+	if (length > 1) {
+		for (i = classSelect.options.length - 1; i > 0; i--) {
 			classSelect.remove(i);
-			i--;
-			classLen--;
 		}
 	}
+
+	// Determine which class type was selected
+	for (var i=0; i<classTypes.length; i++) {
+		if (classType === classTypesNames[i]) {
+			// Create an option for each class of the correct type
+			var classes = classTypes[i];
+			for (var j=0; j<classes.length; j++) {
+				var opt = document.createElement("option");
+				opt.value = classes[j];
+				opt.innerHTML = classes[j];
+
+				classSelect.appendChild(opt);
+			}
+			break;
+		}
+	}
+
+	// Enable the class selection input
 	classSelect.disabled = false;
 	classSelect.classList.remove("disabled-select");
-	let classDefaultOption = document.getElementById("class-default-option");
-	classDefaultOption.innerHTML = " -- select a class -- ";
+
 	return;
+
 }
 
 function redirect(location) {
