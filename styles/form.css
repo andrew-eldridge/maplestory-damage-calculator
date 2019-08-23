@@ -142,7 +142,7 @@ label {
 .details-toggle {
 	color: darkblue;
 	border-bottom: 1px solid darkblue;
-	-webkit-transition: border-bottom: 100ms;
+	-webkit-transition: border-bottom 100ms;
 	transition: border-bottom 100ms;
 }
 .details-toggle:hover {

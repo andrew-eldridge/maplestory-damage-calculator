@@ -7,7 +7,7 @@ setTimeout(function(){
 	banner.style.padding = 0;
 	banner.style.height = 0;
 	banner.innerHTML = "";
-}, 2000);
+}, 2500);
 
 function organizeSelect(selectId) {
 	var sel = $(selectId);
@@ -43,6 +43,17 @@ function fadeIn(hasPost) {
 		for (i=0; i<mobbingElements.length; i++) {
 			mobbingElements[i].style.display = "none";
 		}
+	} else {
+		let banner = document.getElementsByClassName("banner")[0];
+		banner.style.padding = "10px";
+		banner.style.height = "30px";
+		banner.innerHTML = "More information is required on your class. <a href='class-info-form.php'>Please click here</a>.";
+		banner.style.display = "block";
+		setTimeout(function(){
+			banner.style.padding = 0;
+			banner.style.height = 0;
+			banner.innerHTML = "";
+		}, 3000);
 	}
 	backgroundImage.style.opacity = "0";
 	form.style.opacity = "1";

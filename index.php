@@ -51,7 +51,7 @@
 			$_SESSION["visitCount"] += 1;
 		} else {
 			$_SESSION["visitCount"] = 1;
-			$banner = "<div class='banner'>Thank your for choosing to visit Andrew Central! <a href='../index.html'>Learn More</a></div>";
+			$banner = "<div class='banner'>Thank your for choosing to visit <a href='../index.html'>Andrew Central</a>!</div>";
 		}
 
 		// Meta data
@@ -60,13 +60,236 @@
 		// Generic data
 		$lowerRange = mysqli_real_escape_string($conn, $_POST["lowerRange"]);
 		$upperRange = mysqli_real_escape_string($conn, $_POST["upperRange"]);
-		$skillPercent = mysqli_real_escape_string($conn, $_POST["skillPercent"]);
+        $class = mysqli_real_escape_string($conn, $_POST["class"]);
 		$damagePercent = mysqli_real_escape_string($conn, $_POST["damagePercent"]);
 		$criticalDamage = mysqli_real_escape_string($conn, $_POST["criticalDamage"]);
 		$IED = mysqli_real_escape_string($conn, $_POST["IED"]);
 		$ignoreElementalResist = mysqli_real_escape_string($conn, $_POST["ignoreElementalResist"]);
 		$FDB = mysqli_real_escape_string($conn, $_POST["FDB"]);
-		$class = mysqli_real_escape_string($conn, $_POST["class"]);
+
+		// Class data
+        $incompleteData = false;
+        switch ($class) {
+            // Magicians
+            case "Battle Mage":
+                $skillPercent = 3.3;
+                $attacksPerSecond = 8.4;
+                $overallPercent = 0.4610;
+                break;
+            case "Beast Tamer":
+                $incompleteData = true;
+                break;
+            case "Blaze Wizard":
+                $skillPercent = 3.05;
+                $attacksPerSecond = 18.2;
+                $overallPercent = 0.9826;
+                break;
+            // TODO: Evan
+            case "Evan":
+                $incompleteData = true;
+                break;
+            case "Kanna":
+                $skillPercent = 3.00;
+                $attacksPerSecond = 14.9;
+                $overallPercent = 0.8440;
+                break;
+            case "Luminous":
+                $skillPercent = 3.85;
+                $attacksPerSecond = 10.1;
+                $overallPercent = 0.6009;
+                break;
+            case "Bishop":
+                $skillPercent = 2.95;
+                $attacksPerSecond = 13.5;
+                $overallPercent = 0.9906;
+                break;
+            case "Ice/Lightning Mage":
+                $skillPercent = 2.3;
+                $attacksPerSecond = 11.2;
+                $overallPercent = 0.6252;
+                break;
+            // TODO: Fire/Poison Mage
+            case "Fire/Poison Mage":
+                $incompleteData = true;
+                break;
+            case "Kinesis":
+                $skillPercent = 1.5;
+                $attacksPerSecond = 11.1;
+                $overallPercent = 0.4195;
+                break;
+            // TODO: Illium
+            case "Illium":
+                $incompleteData = true;
+                break;
+            // Thieves
+            case "Dual Blade":
+                $skillPercent = 3.15;
+                $attacksPerSecond = 28.5;
+                $overallPercent = 0.9113;
+                break;
+            case "Night Walker":
+                $skillPercent = 3.4;
+                $attacksPerSecond = 42.9;
+                $overallPercent = 0.9220;
+                break;
+            case "Phantom":
+                $skillPercent = 1.1;
+                $attacksPerSecond = 13.4;
+                $overallPercent = 0.4724;
+                break;
+            case "Shadower":
+                $skillPercent = 6.27;
+                $attacksPerSecond = 11.1;
+                $overallPercent = 0.9824;
+                break;
+            case "Night Lord":
+                $skillPercent = 3.78;
+                $attacksPerSecond = 19.8;
+                $overallPercent = 0.8215;
+                break;
+            case "Xenon":
+                $skillPercent = 2.6;
+                $attacksPerSecond = 16.3;
+                $overallPercent = 0.6466;
+                break;
+            // TODO: Cadena
+            case "Cadena":
+                $incompleteData = true;
+                break;
+            // Warriors
+            // TODO: Aran
+            case "Aran":
+                $incompleteData = true;
+                break;
+            case "Dawn Warrior":
+                $skillPercent = 2.95;
+                $attacksPerSecond = 21.2;
+                $overallPercent = 1;
+                break;
+            case "Demon Avenger":
+                $skillPercent = 5.0;
+                $attacksPerSecond = 14.2;
+                $overallPercent = 0.6581;
+                break;
+            case "Demon Slayer":
+                $skillPercent = 4.2;
+                $attacksPerSecond = 20.8;
+                $overallPercent = 0.8965;
+                break;
+            // TODO: Hayato
+            case "Hayato":
+                $incompleteData = true;
+                break;
+            // TODO: Kaiser
+            case "Kaiser":
+                $incompleteData = true;
+                break;
+            case "Mihile":
+                $skillPercent = 2.80;
+                $attacksPerSecond = 13.0;
+                $overallPercent = 0.7893;
+                break;
+            case "Dark Knight":
+                $skillPercent = 2.25;
+                $attacksPerSecond = 16.8;
+                $overallPercent = 0.9555;
+                break;
+            case "Hero":
+                $skillPercent = 2.80;
+                $attacksPerSecond = 15.5;
+                $overallPercent = 0.9188;
+                break;
+            case "Paladin":
+                $skillPercent = 3.10;
+                $attacksPerSecond = 16.5;
+                $overallPercent = 0.9893;
+                break;
+            case "Zero":
+                $skillPercent = 7.45;
+                $attacksPerSecond = 2.4;
+                $overallPercent = 0.16;
+                break;
+            // TODO: Blaster
+            case "Blaster":
+                $incompleteData = true;
+                break;
+            // Bowmen
+            case "Marksman":
+                $skillPercent = 14.7;
+                $attacksPerSecond = 1.7;
+                $overallPercent = 0.9917;
+                break;
+            case "Bowmaster":
+                $skillPercent = 3.3;
+                $attacksPerSecond = 16.5;
+                $overallPercent = 0.4904;
+                break;
+            case "Wild Hunter":
+                $skillPercent = 0.6;
+                $attacksPerSecond = 20.5;
+                $overallPercent = 0.4998;
+                break;
+            // TODO: Wind Archer
+            case "Wind Archer":
+                $incompleteData = true;
+                break;
+            case "Mercedes":
+                $skillPercent = 2.2;
+                $attacksPerSecond = 16.5;
+                $overallPercent = 0.5812;
+                break;
+            // TODO: Pathfinder
+            case "Pathfinder":
+                $incompleteData = true;
+                break;
+            // Pirates
+            case "Angelic Buster":
+                $skillPercent = 2.55;
+                $attacksPerSecond = 9.8;
+                $overallPercent = 0.5323;
+                break;
+            // TODO: Cannoneer
+            case "Cannoneer":
+                $incompleteData = true;
+                break;
+            case "Jett":
+                $skillPercent = 3.00;
+                $attacksPerSecond = 8.4;
+                $overallPercent = 0.7298;
+                break;
+            case "Mechanic":
+                $skillPercent = 8.5;
+                $attacksPerSecond = 15.0;
+                $overallPercent = 0.5506;
+                break;
+            case "Buccaneer":
+                $skillPercent = 3.20;
+                $attacksPerSecond = 15.8;
+                $overallPercent = 0.9879;
+                break;
+            case "Corsair":
+                $skillPercent = 3.00;
+                $attacksPerSecond = 8.5;
+                $overallPercent = 0.4854;
+                break;
+            case "Shade":
+                $skillPercent = 3.80;
+                $attacksPerSecond = 14.1;
+                $overallPercent = 0.8990;
+                break;
+            case "Thunder Breaker":
+                $skillPercent = 3.5;
+                $attacksPerSecond = 17.0;
+                $overallPercent = 0.5408;
+                break;
+            // TODO: Ark
+            case "Ark":
+                $incompleteData = true;
+                break;
+            // None of the above..?
+            default:
+                echo "Critical error: undefined request";
+        }
 
 		// Mobbing specific data
 		if ($calculationMode === "mobbing") {
@@ -162,7 +385,6 @@
 
 		// Modify percentage input to a decimal type
 		if ($inputMode == "percentage") {
-			$skillPercent /= 100;
 			$damagePercent /= 100;
 			$bossPercent /= 100;
 			$criticalDamage /= 100;
@@ -179,289 +401,74 @@
 
 		$avgDamage = [];
 
-		// Outer casing for variance calculation
-		for ($a=0; $a<VARIANCE_CALC_ITERATIONS; $a++) {
+		// Ensure that data is complete before making calculations
+        if (!$incompleteData) {
 
-			// Initialize counters
-			$sumDamage = 0;
-			$sumVariance = 0;
-			$damageList = [];
-			$lowerDamage = [];
-			$upperDamage = [];
+            // Outer casing for variance calculation
+            for ($a=0; $a<VARIANCE_CALC_ITERATIONS; $a++) {
 
-			// Make several calculations to reduce randomness
-			for ($i=0; $i<CALC_ITERATIONS; $i++) {
-				$criticalDamage = rand($minCrit*100, $maxCrit*100) / 100;
+                // Initialize counters
+                $sumDamage = 0;
+                $sumVariance = 0;
+                $damageList = [];
+                $lowerDamage = [];
+                $upperDamage = [];
 
-				$lowerDamage[$i] = (($lowerRange * $skillPercent * (1 + $damagePercent + $bossPercent) * $criticalDamage) * (1 - ($PDR * (1 - $IED))) * (1 - ($elementalResist * (1 - $ignoreElementalResist)))) * (1 + $FDB);
-				if ($lowerDamage[$i] < 0) {
-					$lowerDamage[$i] = 0;
-				}
+                // Make several calculations to reduce randomness
+                for ($i=0; $i<CALC_ITERATIONS; $i++) {
+                    $criticalDamage = rand($minCrit*100, $maxCrit*100) / 100;
 
-				$upperDamage[$i] = (($upperRange * $skillPercent * (1 + $damagePercent + $bossPercent) * $criticalDamage) * (1 - ($PDR * (1 - $IED))) * (1 - ($elementalResist * (1 - $ignoreElementalResist)))) * (1 + $FDB);
-				if ($upperDamage[$i] < 0) {
-					$upperDamage[$i] = 0;
-				}
+                    $lowerDamage[$i] = (($lowerRange * $skillPercent * (1 + $damagePercent + $bossPercent) * $criticalDamage) * (1 - ($PDR * (1 - $IED))) * (1 - ($elementalResist * (1 - $ignoreElementalResist)))) * (1 + $FDB);
+                    if ($lowerDamage[$i] < 0) {
+                        $lowerDamage[$i] = 0;
+                    }
 
-				$damageList[$i] = ($lowerDamage[$i] + $upperDamage[$i]) / 2;
-				$sumDamage += $damageList[$i];
-			}
+                    $upperDamage[$i] = (($upperRange * $skillPercent * (1 + $damagePercent + $bossPercent) * $criticalDamage) * (1 - ($PDR * (1 - $IED))) * (1 - ($elementalResist * (1 - $ignoreElementalResist)))) * (1 + $FDB);
+                    if ($upperDamage[$i] < 0) {
+                        $upperDamage[$i] = 0;
+                    }
 
-			// Log lower/upper damage calculations on first iteration for result stats
-			if ($a === 0) {
-				$lowerDmg = array_sum($lowerDamage) / count($lowerDamage);
-				$upperDmg = array_sum($upperDamage) / count($upperDamage);
-			}
-			// Now calculate the average of all calculations
-			$avgDamage[$a] = intval($sumDamage / CALC_ITERATIONS);
+                    $damageList[$i] = ($lowerDamage[$i] + $upperDamage[$i]) / 2;
+                    $sumDamage += $damageList[$i];
+                }
 
-		}
+                // Log lower/upper damage calculations on first iteration for result stats
+                if ($a === 0) {
+                    $lowerDmg = array_sum($lowerDamage) / count($lowerDamage);
+                    $upperDmg = array_sum($upperDamage) / count($upperDamage);
+                }
+                // Now calculate the average of all calculations
+                $avgDamage[$a] = intval($sumDamage / CALC_ITERATIONS);
 
-		// Determine variance
-		$benchmarkAvgDamage = $avgDamage[0];
-		unset($avgDamage[0]);
-		$test = array_sum($avgDamage) / count($avgDamage);
-		if ($benchmarkAvgDamage !== 0) {
-			$variance = round((abs($benchmarkAvgDamage - (array_sum($avgDamage) / count($avgDamage))) / $benchmarkAvgDamage) * 100, 2);
-		} else {
-			$variance = 0;
-		}
-		$variance .= "%";
+            }
 
-		// Change average damage to number format
-		$resultDamage = number_format($benchmarkAvgDamage);
+            // Determine variance
+            $benchmarkAvgDamage = $avgDamage[0];
+            unset($avgDamage[0]);
+            $test = array_sum($avgDamage) / count($avgDamage);
+            if ($benchmarkAvgDamage !== 0) {
+                $variance = round((abs($benchmarkAvgDamage - (array_sum($avgDamage) / count($avgDamage))) / $benchmarkAvgDamage) * 100, 2);
+            } else {
+                $variance = 0;
+            }
+            $variance .= "%";
 
-		$incompleteData = false;
-		switch ($class) {
-			// Magicians
-			case "Battle Mage":
-				$skillDamage = 3.3;
-				$attacksPerSecond = 8.4;
-				$overallPercent = 0.4610;
-				break;
-			case "Beast Tamer":
-				$incompleteData = true;
-				break;
-			case "Blaze Wizard":
-				$skillDamage = 3.05;
-				$attacksPerSecond = 18.2;
-				$overallPercent = 0.9826;
-				break;
-			// TODO: Evan
-			case "Evan":
-				$incompleteData = true;
-				break;
-			case "Kanna":
-				$skillDamage = 3.00;
-				$attacksPerSecond = 14.9;
-				$overallPercent = 0.8440;
-				break;
-			case "Luminous":
-				$skillDamage = 3.85;
-				$attacksPerSecond = 10.1;
-				$overallPercent = 0.6009;
-				break;
-			case "Bishop":
-				$skillDamage = 2.95;
-				$attacksPerSecond = 13.5;
-				$overallPercent = 0.9906;
-				break;
-			case "Ice/Lightning Mage":
-				$skillDamage = 2.3;
-				$attacksPerSecond = 11.2;
-				$overallPercent = 0.6252;
-				break;
-			// TODO: Fire/Poison Mage
-			case "Fire/Poison Mage":
-				$incompleteData = true;
-				break;
-			case "Kinesis":
-				$skillDamage = 1.5;
-				$attacksPerSecond = 11.1;
-				$overallPercent = 0.4195;
-				break;
-			// TODO: Illium
-			case "Illium":
-				$incompleteData = true;
-				break;
-			// Thieves
-			case "Dual Blade":
-				$skillDamage = 3.15;
-				$attacksPerSecond = 28.5;
-				$overallPercent = 0.9113;
-				break;
-			case "Night Walker":
-				$skillDamage = 3.4;
-				$attacksPerSecond = 42.9;
-				$overallPercent = 0.9220;
-				break;
-			case "Phantom":
-				$skillDamage = 1.1;
-				$attacksPerSecond = 13.4;
-				$overallPercent = 0.4724;
-				break;
-			case "Shadower":
-				$skillDamage = 6.27;
-				$attacksPerSecond = 11.1;
-				$overallPercent = 0.9824;
-				break;
-			case "Night Lord":
-				$skillDamage = 3.78;
-				$attacksPerSecond = 19.8;
-				$overallPercent = 0.8215;
-				break;
-			case "Xenon":
-				$skillDamage = 2.6;
-				$attacksPerSecond = 16.3;
-				$overallPercent = 0.6466;
-				break;
-			// TODO: Cadena
-			case "Cadena":
-				$incompleteData = true;
-				break;
-			// Warriors
-            // TODO: Aran
-			case "Aran":
-				$incompleteData = true;
-				break;
-			case "Dawn Warrior":
-				$skillDamage = 2.95;
-				$attacksPerSecond = 21.2;
-				$overallPercent = 1;
-				break;
-			case "Demon Avenger":
-				$skillDamage = 5.0;
-				$attacksPerSecond = 14.2;
-				$overallPercent = 0.6581;
-				break;
-			case "Demon Slayer":
-				$skillDamage = 4.2;
-				$attacksPerSecond = 20.8;
-				$overallPercent = 0.8965;
-				break;
-			// TODO: Hayato
-			case "Hayato":
-				$incompleteData = true;
-				break;
-			// TODO: Kaiser
-			case "Kaiser":
-				$incompleteData = true;
-				break;
-			case "Mihile":
-				$skillDamage = 2.80;
-				$attacksPerSecond = 13.0;
-				$overallPercent = 0.7893;
-				break;
-			case "Dark Knight":
-				$skillDamage = 2.25;
-				$attacksPerSecond = 16.8;
-				$overallPercent = 0.9555;
-				break;
-			case "Hero":
-				$skillDamage = 2.80;
-				$attacksPerSecond = 15.5;
-				$overallPercent = 0.9188;
-				break;
-			case "Paladin":
-				$skillDamage = 3.10;
-				$attacksPerSecond = 16.5;
-				$overallPercent = 0.9893;
-				break;
-			case "Zero":
-				$skillDamage = 7.45;
-				$attacksPerSecond = 2.4;
-				$overallPercent = 0.16;
-				break;
-			// TODO: Blaster
-			case "Blaster":
-				$incompleteData = true;
-				break;
-			// Bowmen
-			case "Marksman":
-				$skillDamage = 14.7;
-				$attacksPerSecond = 1.7;
-				$overallPercent = 0.9917;
-				break;
-			case "Bowmaster":
-				$skillDamage = 3.3;
-				$attacksPerSecond = 16.5;
-				$overallPercent = 0.4904;
-				break;
-			case "Wild Hunter":
-				$skillDamage = 0.6;
-				$attacksPerSecond = 20.5;
-				$overallPercent = 0.4998;
-				break;
-			// TODO: Wind Archer
-			case "Wind Archer":
-				$incompleteData = true;
-				break;
-			case "Mercedes":
-				$skillDamage = 2.2;
-				$attacksPerSecond = 16.5;
-				$overallPercent = 0.5812;
-				break;
-			// TODO: Pathfinder
-			case "Pathfinder":
-				$incompleteData = true;
-				break;
-			// Pirates
-			case "Angelic Buster":
-				$skillDamage = 2.55;
-				$attacksPerSecond = 9.8;
-				$overallPercent = 0.5323;
-				break;
-			// TODO: Cannoneer
-			case "Cannoneer":
-				$incompleteData = true;
-				break;
-			case "Jett":
-				$skillDamage = 3.00;
-				$attacksPerSecond = 8.4;
-				$overallPercent = 0.7298;
-				break;
-			case "Mechanic":
-				$skillDamage = 8.5;
-				$attacksPerSecond = 15.0;
-				$overallPercent = 0.5506;
-				break;
-			case "Buccaneer":
-				$skillDamage = 3.20;
-				$attacksPerSecond = 15.8;
-				$overallPercent = 0.9879;
-				break;
-			case "Corsair":
-				$skillDamage = 3.00;
-				$attacksPerSecond = 8.5;
-				$overallPercent = 0.4854;
-				break;
-			case "Shade":
-				$skillDamage = 3.80;
-				$attacksPerSecond = 14.1;
-				$overallPercent = 0.8990;
-				break;
-			case "Thunder Breaker":
-				$skillDamage = 3.5;
-				$attacksPerSecond = 17.0;
-				$overallPercent = 0.5408;
-				break;
-			// TODO: Ark
-			case "Ark":
-				$incompleteData = true;
-				break;
-			// None of the above..?
-			default:
-				echo "Critical error: undefined request";
-		}
-		$estimatedTime = $enemyHP / ($attacksPerSecond * $benchmarkAvgDamage);
-		$estimatedMinutes = floor($estimatedTime / 60);
-		$estimatedSeconds = $estimatedTime % 60;
-		$estimatedTimeString = "{$estimatedMinutes}min {$estimatedSeconds}sec";
-		if ($estimatedMinutes <= 10) {
-			$mushroomGifUrl = "images/mushroom-neutral.gif";
-		} else {
-			$mushroomGifUrl = "images/mushroom-sad.gif";
-		}
+            // Change average damage to number format
+            $resultDamage = number_format($benchmarkAvgDamage);
+
+            // Determine estimated time of battle
+            $estimatedTime = $enemyHP / ($attacksPerSecond * $benchmarkAvgDamage);
+            $estimatedMinutes = floor($estimatedTime / 60);
+            $estimatedSeconds = $estimatedTime % 60;
+            $estimatedTimeString = "{$estimatedMinutes}min {$estimatedSeconds}sec";
+            if ($estimatedMinutes <= 10) {
+                $mushroomGifUrl = "images/mushroom-neutral.gif";
+            } else {
+                $mushroomGifUrl = "images/mushroom-sad.gif";
+            }
+
+        }
+
 	}
 
 	if (isset($avgDamage)) {
@@ -587,12 +594,10 @@
 			<select class="disabled-select reg" id="class" name="class" disabled required>
 				<option id="class-default-option" disabled selected value></option>
 			</select>
-			<input onfocusout="validate('skillPercent');" id="skillPercent" class="reg" type="number" name="skillPercent" placeholder="Skill Damage Percent" required><br>
 		</fieldset>
 		<fieldset>
 			<legend>Damage Modifiers</legend>
-			<label for="damagePercent">Damage Percent</label>
-			<input onfocusout="validate('damagePercent');" id="damagePercent" class="reg" type="number" name="damagePercent" placeholder="Damage Percent" required><br>
+			<input onfocusout="validate('damagePercent');" id="damagePercent" class="reg" type="number" name="damagePercent" placeholder="Total Damage Percent" required><br>
 			<input onfocusout="validate('criticalDamage');" id="criticalDamage" class="reg" type="number" name="criticalDamage" placeholder="Bonus Critical Damage Percent" required><br>
 			<input onfocusout="validate('IED');" id="IED" class="reg" type="number" name="IED" placeholder="Ignore Enemy Defense Percent" required><br>
 			<input onfocusout="validate('ignoreElementalResist');" id="ignoreElementalResist" class="reg" type="number" name="ignoreElementalResist" placeholder="Ignore Elemental Resist Percent" required><br>
@@ -613,7 +618,7 @@
 			<img src=<?php echo $mushroomGifUrl; ?>>
 			<h4>Damage per line: <?php echo $resultDamage; ?></h4>
 			<h5>Estimated time: <?php echo $estimatedTimeString; ?></h5>
-			<h5>Variance factor: <?php echo $variance; ?><span class="tooltip"><img src="../images/help-icon.png" alt="More Info" width="16px" height="16px" /><span class="tooltiptext">Describes the variance between multiple calculation tests. If this exceeds 5%, try increasing test threshold.</span></span></h5>
+			<h5>Variance factor: <?php echo $variance; ?><span class="tooltip"><img src="images/help-icon.png" alt="More Info" width="16px" height="16px" /><span class="tooltiptext">Describes the variance between multiple calculation tests. If this exceeds 5%, try increasing test threshold.</span></span></h5>
 			<h5><span class="details-toggle" tabindex="0" onclick="toggleDetails();">Show Details</span></h5>
 			<pre style="display:none;"><?php echo var_export($stats, true); ?></pre>
 		</fieldset>
