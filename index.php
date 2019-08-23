@@ -51,7 +51,7 @@
 			$_SESSION["visitCount"] += 1;
 		} else {
 			$_SESSION["visitCount"] = 1;
-			$banner = "<div class='banner'>Thank your for choosing to visit Andrew Central! <a href='../../index'>Learn More</a></div>";
+			$banner = "<div class='banner'>Thank your for choosing to visit Andrew Central! <a href='../index.html'>Learn More</a></div>";
 		}
 
 		// Meta data
@@ -458,9 +458,9 @@
 		$estimatedSeconds = $estimatedTime % 60;
 		$estimatedTimeString = "{$estimatedMinutes}min {$estimatedSeconds}sec";
 		if ($estimatedMinutes <= 10) {
-			$mushroomGifUrl = "../../images/mushroom-neutral.gif";
+			$mushroomGifUrl = "images/mushroom-neutral.gif";
 		} else {
-			$mushroomGifUrl = "../../images/mushroom-sad.gif";
+			$mushroomGifUrl = "images/mushroom-sad.gif";
 		}
 	}
 
@@ -500,18 +500,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Maplestory Damage Calculator | Personal Projects | AndrewEldridge.me</title>
-	<link rel="shortcut icon" href="../../images/maple-leaf.png">
-	<link rel="stylesheet" type="text/css" href="../../styles/form.css">
+	<title>MapleStory Damage Calculator | Andrew's Portfolio</title>
+	<link rel="shortcut icon" href="images/maple-leaf.png">
+	<link rel="stylesheet" type="text/css" href="styles/form.css">
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
-	<meta name="description" content="This comprehensive Maplestory damage calculator will determine your damage to mobs and bosses based on several factors.">
+	<meta name="description" content="This comprehensive MapleStory damage calculator will determine your damage to mobs and bosses based on several factors.">
 	<meta http-equiv="Cache-Control" content="no-store" />
 </head>
 <body onload="fadeIn(<?php echo $success; ?>);">
 	<?php echo $banner; ?>
-	<img class="background-image" src="../../images/login.png">
+	<img class="background-image" src="images/login.png">
 	<header>Maplestory Damage Calculator</header>
-	<form action="damage-calculator" method="post">
+	<form action="index.php" method="post">
 		<fieldset>
 			<legend>Meta Configuration</legend>
 			<fieldset class="sub-fieldset">
@@ -663,14 +663,14 @@
 			<img src=<?php echo $mushroomGifUrl; ?>>
 			<h4>Damage per line: <?php echo $resultDamage; ?></h4>
 			<h5>Estimated time: <?php echo $estimatedTimeString; ?></h5>
-			<h5>Variance factor: <?php echo $variance; ?><span class="tooltip"><img src="../../images/help-icon.png" alt="More Info" width="16px" height="16px" /><span class="tooltiptext">Describes the variance between multiple calculation tests. If this exceeds 5%, try increasing test threshold.</span></span></h5>
+			<h5>Variance factor: <?php echo $variance; ?><span class="tooltip"><img src="../images/help-icon.png" alt="More Info" width="16px" height="16px" /><span class="tooltiptext">Describes the variance between multiple calculation tests. If this exceeds 5%, try increasing test threshold.</span></span></h5>
 			<h5><span class="details-toggle" tabindex="0" onclick="toggleDetails();">Show Details</span></h5>
 			<pre style="display:none;"><?php echo var_export($stats, true); ?></pre>
 		</fieldset>
 		<input class="submit" type="submit" value="Calculate Damage!">
-		<button onclick="redirect('damage-calculator');" class="submit return">Make Another Calculation</button>
+		<button onclick="redirect('index.php');" class="submit return">Make Another Calculation</button>
 	</form>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="../../scripts/maplestory-damage-calculator.js"></script>
+	<script src="scripts/main.js"></script>
 </body>
 </html>
