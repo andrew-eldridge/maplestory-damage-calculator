@@ -15,16 +15,16 @@
 		while ($row = mysqli_fetch_assoc($result)) {
 			if ($row["blacklisted"]) {
 				// The user has been blacklisted - send them away!
-				if (!stripos($_SERVER["HTTP_REFERER"], "andreweldridge.me")) {
+				if (!stripos($_SERVER["HTTP_REFERER"], "andrewcentral.com")) {
 					if (isset($_SERVER["HTTP_REFERER"])) {
 						header("location: " . $_SERVER["HTTP_REFERER"]);
 					} else {
-						header("location: ../../reject?err=blacklist");
+						header("location: ../reject?err=blacklist");
 					}
 					exit;
 				} else {
-					// The sneaky critter... just sent 'em to the rejection page!
-					header("location: ../../reject?err=blacklist");
+					// The sneaky critter... just send 'em to the rejection page!
+					header("location: ../reject?err=blacklist");
 					exit;
 				}
 			}
@@ -51,7 +51,7 @@
 			$_SESSION["visitCount"] += 1;
 		} else {
 			$_SESSION["visitCount"] = 1;
-			$banner = "<div class='banner'>Thank your for choosing to visit AndrewEldridge.me! <a href='../../index'>Learn More</a></div>";
+			$banner = "<div class='banner'>Thank your for choosing to visit Andrew Central! <a href='../../index'>Learn More</a></div>";
 		}
 
 		// Meta data
