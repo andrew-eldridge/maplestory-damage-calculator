@@ -66,13 +66,14 @@
     <form action="class-info-form.php" method="post" style="opacity: 1;">
         <fieldset id="instructions">
             <legend>Instructions</legend>
-            <h3><b>Please perform a 1-minute battle analysis on a straw training dummy and <a href="input">upload a screenshot of the results</a></b></h3>
+            <h3><b>Please perform a 1-minute battle analysis on a straw training dummy and upload a screenshot of the results</b></h3>
         </fieldset>
         <fieldset id="input">
             <legend>Input</legend>
-            <label for="battleAnalysis">Upload an image of your battle analysis:</label>
+            <label for="battleAnalysis"><b>Upload an image of your battle analysis:</b></label>
             <input id="battleAnalysis" name="battleAnalysis" type="file" accept="image/png, image/jpeg" required>
         </fieldset>
+        <input type="hidden" name="class" value="<?php echo $class; ?>">
         <input type="submit" class="submit" value="Submit Diagnostic">
     </form>
 </body>
