@@ -40,10 +40,12 @@
 	}
 
 	// Initialize global variables
-	$banner = "";
+	$banner = "<div class='banner'></div>";
 	// Initialize constants
 	define("CALC_ITERATIONS", 10);
 	define("VARIANCE_CALC_ITERATIONS", 5);
+
+	$incompleteData = false;
 
 	if ($_POST != null) {
 		// Session details
@@ -68,7 +70,6 @@
 		$FDB = mysqli_real_escape_string($conn, $_POST["FDB"]);
 
 		// Class data
-        $incompleteData = false;
         switch ($class) {
             // Magicians
             case "Battle Mage":
@@ -514,7 +515,7 @@
 	<meta name="description" content="This comprehensive MapleStory damage calculator will determine your damage to mobs and bosses based on several factors.">
 	<meta http-equiv="Cache-Control" content="no-store" />
 </head>
-<body onload="fadeIn(<?php echo $success; ?>);">
+<body onload="fadeIn(<?php echo "{$success}, {$incompleteData}"; ?>);">
 	<?php echo $banner; ?>
 	<img class="background-image" src="images/login.png">
 	<header>Maplestory Damage Calculator</header>

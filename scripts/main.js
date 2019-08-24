@@ -18,7 +18,7 @@ function organizeSelect(selectId) {
 	sel.val(selected);
 }
 
-function fadeIn(hasPost) {
+function fadeIn(hasPost, hasIncompleteData) {
 	console.log("Post data: " + hasPost);
 	let backgroundImage = document.getElementsByClassName("background-image")[0];
 	let form = document.getElementsByTagName("form")[0];
@@ -43,10 +43,11 @@ function fadeIn(hasPost) {
 		for (i=0; i<mobbingElements.length; i++) {
 			mobbingElements[i].style.display = "none";
 		}
-	} else {
+	} else if (hasIncompleteData) {
 		let banner = document.getElementsByClassName("banner")[0];
 		banner.style.padding = "10px";
 		banner.style.height = "30px";
+		banner.style.backgroundColor = "#ff3642";
 		banner.innerHTML = "More information is required on your class. <a href='class-info-form.php'>Please click here</a>.";
 		banner.style.display = "block";
 		setTimeout(function(){
