@@ -9,13 +9,11 @@ let bossingRadio = document.getElementById("calculation-mode2");
 let bossingInputs = document.getElementsByClassName("bossing-input");
 let mobbingInputs = document.getElementsByClassName("mobbing-input");
 
-window.onload = function(e) {
-    setTimeout(function(){
-        banner.style.padding = 0;
-        banner.style.height = 0;
-        banner.innerHTML = "";
-    }, 5000);
-};
+setTimeout(function(){
+    banner.style.padding = 0;
+    banner.style.height = 0;
+    banner.innerHTML = "";
+}, 5000);
 
 function fadeIn(hasPost, hasIncompleteData) {
 
