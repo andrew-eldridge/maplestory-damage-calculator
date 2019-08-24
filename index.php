@@ -502,7 +502,7 @@
             }
 
         } else {
-            $banner = "<div class='banner'>More information is required on your class. <a href='class-info-form.php'>Please click here</a>.</div>";
+            $banner = "<div class='banner'>More information is required on the {$class} class. <a href='class-info-form.php?c={$class}'>Click here</a>.</div>";
         }
 
 	}
@@ -516,7 +516,6 @@
 	<link rel="stylesheet" type="text/css" href="styles/form.css">
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
 	<meta name="description" content="This comprehensive MapleStory damage calculator will determine your damage to mobs and bosses based on several factors.">
-	<meta http-equiv="Cache-Control" content="no-store" />
 </head>
 <body onload="fadeIn(<?php echo "{$success}, {$incompleteData}"; ?>);">
 	<?php echo $banner; ?>
