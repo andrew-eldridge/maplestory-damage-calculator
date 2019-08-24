@@ -1,7 +1,9 @@
 <?php
 
+    require "../vendor/autoload.php";
     include_once "mysql-connect.php";
     session_start();
+    $ext = null;
 
     // Determine whether post data is present
     if ($_POST != null) {
@@ -12,7 +14,7 @@
         $class = $_POST["class"];
 
         // Determine the file extension
-        if (strrpos($_FILES["battleAnalysis"]["name"], ".jpg") != null || strrpos($_FILES["profile_pic"]["name"], ".jpeg") != null) {
+        if (strrpos($_FILES["battleAnalysis"]["name"], ".jpg") != null || strrpos($_FILES["battleAnalysis"]["name"], ".jpeg") != null) {
             $ext = ".jpg";
         };
         if (strrpos($_FILES["battleAnalysis"]["name"], ".png") != null) {
@@ -23,7 +25,7 @@
         $path = __DIR__ . "uploads\{$class}-" . uniqid() . $ext;
 
         // Move temp file to new location
-        if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $path)) {
+        if (move_uploaded_file($_FILES["battleAnalysis"]["tmp_name"], $path)) {
             header("location: index.php");
             exit;
         } else {
