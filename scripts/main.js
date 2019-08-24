@@ -1,30 +1,27 @@
-// Alphabetically organize the large select inputs
-organizeSelect("#class-type");
-organizeSelect("#class");
+let banner = document.getElementsByClassName("banner")[0];
+let backgroundImage = document.getElementsByClassName("background-image")[0];
+let form = document.getElementsByTagName("form")[0];
+let returnBtn = document.getElementsByClassName("return")[0];
+let bossingElements = document.getElementsByClassName("bossing");
+let mobbingElements = document.getElementsByClassName("mobbing");
+let mobbingRadio = document.getElementById("calculation-mode1");
+let bossingRadio = document.getElementById("calculation-mode2");
+let bossingInputs = document.getElementsByClassName("bossing-input");
+let mobbingInputs = document.getElementsByClassName("mobbing-input");
 
-setTimeout(function(){
-	let banner = document.getElementsByClassName("banner")[0];
-	banner.style.padding = 0;
-	banner.style.height = 0;
-	banner.innerHTML = "";
-}, 2500);
-
-function organizeSelect(selectId) {
-	var sel = $(selectId);
-	var selected = sel.val();
-	var opts_list = sel.find('option');
-	opts_list.sort(function(a, b) { return $(a).text() > $(b).text() ? 1 : -1; });
-	sel.html('').append(opts_list);
-	sel.val(selected);
-}
+window.onload = function(e) {
+    setTimeout(function(){
+        banner.style.padding = 0;
+        banner.style.height = 0;
+        banner.innerHTML = "";
+    }, 5000);
+};
 
 function fadeIn(hasPost, hasIncompleteData) {
-	console.log("Post data: " + hasPost);
-	let backgroundImage = document.getElementsByClassName("background-image")[0];
-	let form = document.getElementsByTagName("form")[0];
-	let returnBtn = document.getElementsByClassName("return")[0];
-	let bossingElements = document.getElementsByClassName("bossing");
-	let mobbingElements = document.getElementsByClassName("mobbing");
+
+    // Organize class types
+    organizeSelect("#class-type");
+
 	if (hasPost) {
 		let submit = document.getElementsByClassName("submit")[0];
 		submit.style.display = "none";
@@ -44,21 +41,11 @@ function fadeIn(hasPost, hasIncompleteData) {
 			mobbingElements[i].style.display = "none";
 		}
 	} else if (hasIncompleteData) {
-		let banner = document.getElementsByClassName("banner")[0];
-		banner.style.padding = "10px";
-		banner.style.height = "30px";
-		banner.style.backgroundColor = "#ff3642";
-		banner.innerHTML = "More information is required on your class. <a href='class-info-form.php'>Please click here</a>.";
-		banner.style.display = "block";
-		setTimeout(function(){
-			banner.style.padding = 0;
-			banner.style.height = 0;
-			banner.innerHTML = "";
-		}, 3000);
+        banner.style.backgroundColor = "#ff3642";
 	}
 	backgroundImage.style.opacity = "0";
 	form.style.opacity = "1";
-	return;
+
 }
 
 function enableClassSelect(classType) {
@@ -78,7 +65,7 @@ function enableClassSelect(classType) {
 	let classSelect = document.getElementById("class");
 
 	// Clear all options except default option
-	var length = classSelect.options.length;
+	let length = classSelect.options.length;
 	if (length > 1) {
 		for (i = classSelect.options.length - 1; i > 0; i--) {
 			classSelect.remove(i);
@@ -86,12 +73,12 @@ function enableClassSelect(classType) {
 	}
 
 	// Determine which class type was selected
-	for (var i=0; i<classTypes.length; i++) {
+	for (let i=0; i<classTypes.length; i++) {
 		if (classType === classTypesNames[i]) {
 			// Create an option for each class of the correct type
-			var classes = classTypes[i];
-			for (var j=0; j<classes.length; j++) {
-				var opt = document.createElement("option");
+			let classes = classTypes[i];
+			for (let j=0; j<classes.length; j++) {
+				let opt = document.createElement("option");
 				opt.value = classes[j];
 				opt.innerHTML = classes[j];
 				classSelect.appendChild(opt);
@@ -104,27 +91,25 @@ function enableClassSelect(classType) {
 	classSelect.disabled = false;
 	classSelect.classList.remove("disabled-select");
 
-	return;
+	// Organize class items
+    organizeSelect("#class");
 
+}
+
+function organizeSelect(selectId) {
+    let sel = $(selectId);
+    let selected = sel.val();
+    let opts_list = sel.find('option');
+    opts_list.sort(function(a, b) { return $(a).text() > $(b).text() ? 1 : -1; });
+    sel.html('').append(opts_list);
+    sel.val(selected);
 }
 
 function redirect(location) {
 	window.location.replace(location);
-	return;
-}
-
-function logStats(stats) {
-	console.log(stats);
-	return;
 }
 
 function updateCalculationMode() {
-	let mobbingRadio = document.getElementById("calculation-mode1");
-	let bossingRadio = document.getElementById("calculation-mode2");
-	let bossingElements = document.getElementsByClassName("bossing");
-	let bossingInputs = document.getElementsByClassName("bossing-input");
-	let mobbingElements = document.getElementsByClassName("mobbing");
-	let mobbingInputs = document.getElementsByClassName("mobbing-input");
 	console.log(bossingElements.type);
 	console.log(mobbingElements);
 	if (mobbingRadio.checked) {
@@ -158,7 +143,6 @@ function updateCalculationMode() {
 	} else {
 		console.log("Error: Invalid calculation mode selected.");
 	}
-	return;
 }
 
 function updateInputMode() {
@@ -167,7 +151,7 @@ function updateInputMode() {
 	let inputs = document.getElementsByTagName("input");
 	if (decimalRadio.checked) {
 		for (i=0; i<inputs.length; i++) {
-			if ((inputs[i].type != "number") || (inputs[i].classList.contains("range"))) {
+			if ((inputs[i].type !== "number") || (inputs[i].classList.contains("range"))) {
 				continue;
 			}
 			inputs[i].min = "0";
@@ -177,7 +161,7 @@ function updateInputMode() {
 		console.log("Input mode changed to decimal.");
 	} else if (percentageRadio.checked) {
 		for (i=0; i<inputs.length; i++) {
-			if ((inputs[i].type != "number") || (inputs[i].classList.contains("range"))) {
+			if ((inputs[i].type !== "number") || (inputs[i].classList.contains("range"))) {
 				continue;
 			}
 			inputs[i].min = "0";
@@ -188,22 +172,21 @@ function updateInputMode() {
 	} else {
 		console.log("Error: Invalid input mode selected.");
 	}
-	return;
 }
 
 function validate(id) {
-	if (id == "all") {
+	if (id === "all") {
 		let inputs = document.getElementsByTagName("input");
-		for (i=0; i<inputs.length; i++) {
-			if (inputs[i].type != "number") {
+		for (let i=0; i<inputs.length; i++) {
+			if (inputs[i].type !== "number") {
 				continue;
 			}
 			if (inputs[i].checkValidity()) {
-				if (inputs[i].value != "") {
+				if (inputs[i].value !== "") {
 					inputs[i].style.backgroundColor = "#BBFF9E";
 				}
 			} else {
-				if (inputs[i].value != "") {
+				if (inputs[i].value !== "") {
 					inputs[i].style.backgroundColor = "#FFAEAE";
 				}
 			}
@@ -211,14 +194,13 @@ function validate(id) {
 		return;
 	}
 	let targetElement = document.getElementById(id);
-	if (targetElement.value != "") {
+	if (targetElement.value !== "") {
 		if (targetElement.checkValidity()) {
 			targetElement.style.backgroundColor = "#BBFF9E";
 		} else {
 			targetElement.style.backgroundColor = "#FFAEAE";
 		}
 	}
-	return;
 }
 
 function toggleDetails() {

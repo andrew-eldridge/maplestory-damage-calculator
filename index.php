@@ -40,7 +40,7 @@
 	}
 
 	// Initialize global variables
-	$banner = "<div class='banner'></div>";
+	$banner = "";
 	// Initialize constants
 	define("CALC_ITERATIONS", 10);
 	define("VARIANCE_CALC_ITERATIONS", 5);
@@ -501,6 +501,8 @@
                 $success = 0;
             }
 
+        } else {
+            $banner = "<div class='banner'>More information is required on your class. <a href='class-info-form.php'>Please click here</a>.</div>";
         }
 
 	}
