@@ -1,52 +1,35 @@
 <?php
 
-	include_once "mysql-connect.php";
+    require "../global.php";
+	require "mysql-connect.php";
 	session_start();
 
-	// Some db test stuff
+	// Requesting user details
 	$userAgent = $_SERVER["HTTP_USER_AGENT"];
 	$clientIP = $_SERVER["REMOTE_ADDR"];
 
-	// Determine whether the requesting IP already exists
-	$sql = "SELECT * FROM visitor WHERE ipAddress='{$clientIP}';";
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-		// This user has visited before! Check the blacklist before granting access
-		while ($row = mysqli_fetch_assoc($result)) {
-			if ($row["blacklisted"]) {
-				// The user has been blacklisted - send them away!
-				if (!stripos($_SERVER["HTTP_REFERER"], "andrewcentral.com")) {
-					if (isset($_SERVER["HTTP_REFERER"])) {
-						header("location: " . $_SERVER["HTTP_REFERER"]);
-					} else {
-						header("location: ../reject?err=blacklist");
-					}
-					exit;
-				} else {
-					// The sneaky critter... just send 'em to the rejection page!
-					header("location: ../reject?err=blacklist");
-					exit;
-				}
-			}
-		}
-	} else {
-		// This user has never visited before. Let's log their header info
-		$sql = "INSERT INTO visitor (userAgent, ipAddress, blacklisted) VALUES ('{$userAgent}', '{$clientIP}', 0);";
-		if (!mysqli_query($conn, $sql)) {
-			// The user's info couldn't be logged
-			// TODO: Implement a failsafe measure
-			echo "An error occurred while processing the request.";
-		}
-	}
+	// Verify that the user has permission to access this page
+	validateUser($conn, $userAgent, $clientIP);
 
 	// Initialize global variables
 	$banner = "";
+    $success = 0;
+    $incompleteData = 0;
+
 	// Initialize constants
 	define("CALC_ITERATIONS", 10);
 	define("VARIANCE_CALC_ITERATIONS", 5);
 
-	$success = 0;
-	$incompleteData = 0;
+	// Check for query params
+    $url = $_SERVER["REQUEST_URI"];
+    $parts = parse_url($url);
+    if (isset($parts["query"])) {
+        parse_str($parts["query"], $query);
+        if (isset($query["m"])) {
+            // There is a message - let's display it on the banner
+            $banner = "<div class='banner'>Form submitted successfully!</div>";
+        }
+    }
 
 	if ($_POST != null) {
 		// Session details
