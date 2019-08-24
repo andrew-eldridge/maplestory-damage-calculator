@@ -469,40 +469,40 @@
                 $mushroomGifUrl = "images/mushroom-sad.gif";
             }
 
+            if (isset($avgDamage)) {
+                $success = 1;
+                $stats = (object) [
+                    "meta" => (object) [
+                        "calculationMode" => $calculationMode,
+                        "inputMode" => $inputMode
+                    ],
+                    "boss" => (object) [
+                        "PDR" => round($PDR, 2),
+                        "elementalResist" => round($elementalResist, 2)
+                    ],
+                    "generic" => (object) [
+                        "lowerRange" => round($lowerRange, 2),
+                        "upperRange" => round($upperRange, 2),
+                        "skillPercent" => round($skillPercent, 2),
+                        "damagePercent" => round($damagePercent, 2),
+                        "bossPercent" => round($bossPercent, 2),
+                        "criticalDamage" => round($criticalDamage, 2),
+                        "IED" => round($IED, 2),
+                        "ignoreElementalResist" => round($ignoreElementalResist, 2),
+                        "FDB" => round($FDB, 2),
+                    ],
+                    "calculated" => (object) [
+                        "lowerDamage" => number_format(intval($lowerDmg, 2)),
+                        "upperDamage" => number_format(intval($upperDmg, 2)),
+                        "avgDamage" => $resultDamage
+                    ]
+                ];
+            } else {
+                $success = 0;
+            }
+
         }
 
-	}
-
-	if (isset($avgDamage)) {
-		$success = 1;
-		$stats = (object) [
-			"meta" => (object) [
-				"calculationMode" => $calculationMode,
-				"inputMode" => $inputMode
-			],
-			"boss" => (object) [
-				"PDR" => round($PDR, 2),
-				"elementalResist" => round($elementalResist, 2)
-			],
-			"generic" => (object) [
-				"lowerRange" => round($lowerRange, 2),
-				"upperRange" => round($upperRange, 2),
-				"skillPercent" => round($skillPercent, 2),
-				"damagePercent" => round($damagePercent, 2),
-				"bossPercent" => round($bossPercent, 2),
-				"criticalDamage" => round($criticalDamage, 2),
-				"IED" => round($IED, 2),
-				"ignoreElementalResist" => round($ignoreElementalResist, 2),
-				"FDB" => round($FDB, 2),
-			],
-			"calculated" => (object) [
-				"lowerDamage" => number_format(intval($lowerDmg, 2)),
-				"upperDamage" => number_format(intval($upperDmg, 2)),
-				"avgDamage" => $resultDamage
-			]
-		];
-	} else {
-		$success = 0;
 	}
 
 ?>
