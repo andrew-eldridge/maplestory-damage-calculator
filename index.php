@@ -45,7 +45,8 @@
 	define("CALC_ITERATIONS", 10);
 	define("VARIANCE_CALC_ITERATIONS", 5);
 
-	$incompleteData = false;
+	$success = 0;
+	$incompleteData = 0;
 
 	if ($_POST != null) {
 		// Session details
@@ -78,7 +79,7 @@
                 $overallPercent = 0.4610;
                 break;
             case "Beast Tamer":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Blaze Wizard":
                 $skillPercent = 3.05;
@@ -87,7 +88,7 @@
                 break;
             // TODO: Evan
             case "Evan":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Kanna":
                 $skillPercent = 3.00;
@@ -111,7 +112,7 @@
                 break;
             // TODO: Fire/Poison Mage
             case "Fire/Poison Mage":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Kinesis":
                 $skillPercent = 1.5;
@@ -120,7 +121,7 @@
                 break;
             // TODO: Illium
             case "Illium":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // Thieves
             case "Dual Blade":
@@ -155,12 +156,12 @@
                 break;
             // TODO: Cadena
             case "Cadena":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // Warriors
             // TODO: Aran
             case "Aran":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Dawn Warrior":
                 $skillPercent = 2.95;
@@ -179,11 +180,11 @@
                 break;
             // TODO: Hayato
             case "Hayato":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // TODO: Kaiser
             case "Kaiser":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Mihile":
                 $skillPercent = 2.80;
@@ -212,7 +213,7 @@
                 break;
             // TODO: Blaster
             case "Blaster":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // Bowmen
             case "Marksman":
@@ -232,7 +233,7 @@
                 break;
             // TODO: Wind Archer
             case "Wind Archer":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Mercedes":
                 $skillPercent = 2.2;
@@ -241,7 +242,7 @@
                 break;
             // TODO: Pathfinder
             case "Pathfinder":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // Pirates
             case "Angelic Buster":
@@ -251,7 +252,7 @@
                 break;
             // TODO: Cannoneer
             case "Cannoneer":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             case "Jett":
                 $skillPercent = 3.00;
@@ -285,7 +286,7 @@
                 break;
             // TODO: Ark
             case "Ark":
-                $incompleteData = true;
+                $incompleteData = 1;
                 break;
             // None of the above..?
             default:
@@ -473,7 +474,7 @@
 	}
 
 	if (isset($avgDamage)) {
-		$success = true;
+		$success = 1;
 		$stats = (object) [
 			"meta" => (object) [
 				"calculationMode" => $calculationMode,
@@ -501,7 +502,7 @@
 			]
 		];
 	} else {
-		$success = false;
+		$success = 0;
 	}
 
 ?>
