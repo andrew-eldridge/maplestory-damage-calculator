@@ -10,8 +10,8 @@ let bossingInputs = document.getElementsByClassName("bossing-input");
 let mobbingInputs = document.getElementsByClassName("mobbing-input");
 
 setTimeout(function(){
-    banner.style.padding = 0;
-    banner.style.height = 0;
+    banner.style.padding = "0px";
+    banner.style.height = "0px";
     banner.innerHTML = "";
 }, 5000);
 
@@ -25,17 +25,17 @@ function fadeIn(hasPost, hasIncompleteData) {
 		submit.style.display = "none";
 		returnBtn.style.display = "inline-block";
 		let fieldsets = document.getElementsByTagName("fieldset");
-		for (i=0; i<fieldsets.length; i++) {
+		for (let i=0; i<fieldsets.length; i++) {
 			if (fieldsets[i].classList.contains("results")) {
 				fieldsets[i].style.display = "block";
 			} else {
 				fieldsets[i].style.display = "none";
 			}
 		}
-		for (i=0; i<bossingElements.length; i++) {
+		for (let i=0; i<bossingElements.length; i++) {
 			bossingElements[i].style.display = "none";
 		}
-		for (i=0; i<mobbingElements.length; i++) {
+		for (let i=0; i<mobbingElements.length; i++) {
 			mobbingElements[i].style.display = "none";
 		}
 	} else if (hasIncompleteData) {
@@ -65,7 +65,7 @@ function enableClassSelect(classType) {
 	// Clear all options except default option
 	let length = classSelect.options.length;
 	if (length > 1) {
-		for (i = classSelect.options.length - 1; i > 0; i--) {
+		for (let i = classSelect.options.length - 1; i > 0; i--) {
 			classSelect.remove(i);
 		}
 	}
@@ -111,30 +111,30 @@ function updateCalculationMode() {
 	console.log(bossingElements.type);
 	console.log(mobbingElements);
 	if (mobbingRadio.checked) {
-		for (i=0; i<bossingElements.length; i++) {
+		for (let i=0; i<bossingElements.length; i++) {
 			bossingElements[i].style.display = "none";
 		}
-		for (i=0; i<bossingInputs.length; i++) {
+		for (let i=0; i<bossingInputs.length; i++) {
 			bossingInputs[i].required = false;
 		}
-		for (i=0; i<mobbingElements.length; i++) {
+		for (let i=0; i<mobbingElements.length; i++) {
 			mobbingElements[i].style.display = "block";
 		}
-		for (i=0; i<mobbingInputs.length; i++) {
+		for (let i=0; i<mobbingInputs.length; i++) {
 			mobbingInputs[i].required = true;
 		}
 		console.log("Calculation mode changed to mobbing.");
 	} else if (bossingRadio.checked) {
-		for (i=0; i<bossingElements.length; i++) {
+		for (let i=0; i<bossingElements.length; i++) {
 			bossingElements[i].style.display = "block";
 		}
-		for (i=0; i<bossingInputs.length; i++) {
+		for (let i=0; i<bossingInputs.length; i++) {
 			bossingInputs[i].required = true;
 		}
-		for (i=0; i<mobbingElements.length; i++) {
+		for (let i=0; i<mobbingElements.length; i++) {
 			mobbingElements[i].style.display = "none";
 		}
-		for (i=0; i<mobbingInputs.length; i++) {
+		for (let i=0; i<mobbingInputs.length; i++) {
 			mobbingInputs[i].required = false;
 		}
 		console.log("Calculation mode changed to bossing.");
@@ -148,7 +148,7 @@ function updateInputMode() {
 	let percentageRadio = document.getElementById("input-mode2");
 	let inputs = document.getElementsByTagName("input");
 	if (decimalRadio.checked) {
-		for (i=0; i<inputs.length; i++) {
+		for (let i=0; i<inputs.length; i++) {
 			if ((inputs[i].type !== "number") || (inputs[i].classList.contains("range"))) {
 				continue;
 			}
@@ -158,7 +158,7 @@ function updateInputMode() {
 		}
 		console.log("Input mode changed to decimal.");
 	} else if (percentageRadio.checked) {
-		for (i=0; i<inputs.length; i++) {
+		for (let i=0; i<inputs.length; i++) {
 			if ((inputs[i].type !== "number") || (inputs[i].classList.contains("range"))) {
 				continue;
 			}
