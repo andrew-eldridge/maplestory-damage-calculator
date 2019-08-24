@@ -8,6 +8,10 @@
 
         // A form submission was made
 
+        // Get class associated with the image
+        $class = $_POST["class"];
+
+        // Determine the file extension
         if (strrpos($_FILES["battleAnalysis"]["name"], ".jpg") != null || strrpos($_FILES["profile_pic"]["name"], ".jpeg") != null) {
             $ext = ".jpg";
         };
@@ -15,8 +19,10 @@
             $ext = ".png";
         };
 
-        $path = __DIR__ . "uploads\\" . uniqid() . $ext;
+        // New path for image
+        $path = __DIR__ . "uploads\{$class}-" . uniqid() . $ext;
 
+        // Move temp file to new location
         if (move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $path)) {
             header("location: index.php");
             exit;
@@ -57,7 +63,7 @@
 </head>
 <body>
     <header><?php echo $class; ?> Info Form</header>
-    <form action="class-info-form.php" method="post">
+    <form action="class-info-form.php" method="post" style="opacity: 1;">
         <fieldset id="instructions">
             <legend>Instructions</legend>
             <h3><b>Please perform a 1-minute battle analysis on a straw training dummy and <a href="input">upload a screenshot of the results</a></b></h3>
