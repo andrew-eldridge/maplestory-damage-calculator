@@ -300,7 +300,7 @@
 			}
 
 			if (isset($_POST["enemyHP"]) && ($_POST["enemyHP"] != "")) {
-                $enemyHP = (int)$_POST["enemyHP"];
+                $enemyHP = (float)$_POST["enemyHP"];
 			} else {
 				$enemyHP = 0;
 			}
