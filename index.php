@@ -278,43 +278,36 @@
 
 		// Mobbing specific data
 		if ($calculationMode === "mobbing") {
+
 			$bossPercent = 0;
+
 			if (isset($_POST["PDR"]) && ($_POST["PDR"] != "")) {
-				if ($inputMode === "decimal") {
-					$PDR = mysqli_real_escape_string($conn, $_POST["PDR"]);
-				} else if ($inputMode === "percentage") {
-					$PDR = mysqli_real_escape_string($conn, $_POST["PDR"]);
+                $PDR = mysqli_real_escape_string($conn, $_POST["PDR"]);
+				if ($inputMode === "percentage") {
 					$PDR /= 100;
-				} else {
-					echo "Error: invalid request parameter for input mode.";
 				}
 			} else {
 				$PDR = 0;
 			}
+
 			if (isset($_POST["elementalResist"]) && ($_POST["elementalResist"] != "")) {
-				if ($inputMode === "decimal") {
-					$elementalResist = mysqli_real_escape_string($conn, $_POST["elementalResist"]);
-				} else if ($inputMode === "percentage") {
-					$elementalResist = mysqli_real_escape_string($conn, $_POST["elementalResist"]);
+                $elementalResist = mysqli_real_escape_string($conn, $_POST["elementalResist"]);
+				if ($inputMode === "percentage") {
 					$elementalResist /= 100;
-				} else {
-					echo "Error: invalid request parameter for input mode.";
 				}
 			} else {
 				$elementalResist = 0;
 			}
+
 			if (isset($_POST["enemyHP"]) && ($_POST["enemyHP"] != "")) {
-				if ($inputMode === "decimal") {
-					$enemyHP = mysqli_real_escape_string($conn, $_POST["enemyHP"]);
-				} else if ($inputMode === "percentage") {
-					$enemyHP = mysqli_real_escape_string($conn, $_POST["enemyHP"]);
+                $enemyHP = (int)mysqli_real_escape_string($conn, $_POST["enemyHP"]);
+				if ($inputMode === "percentage") {
 					$enemyHP /= 100;
-				} else {
-					echo "Error: invalid request parameter for input mode.";
 				}
 			} else {
 				$enemyHP = 0;
 			}
+
 		}
 
 		// Bossing specific data
