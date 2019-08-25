@@ -71,7 +71,9 @@
                 break;
             // TODO: Evan
             case "Evan":
-                $incompleteData = 1;
+                $skillPercent = 3.3;
+                $attacksPerSecond = 7.6;
+                $overallPercent = 0.2835;
                 break;
             case "Kanna":
                 $skillPercent = 3.00;
