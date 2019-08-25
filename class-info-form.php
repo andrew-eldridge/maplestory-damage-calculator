@@ -2,7 +2,7 @@
 
     require "../vendor/autoload.php";
     require "../global.php";
-    require "mysql-connect.php";
+    require "../mysql-connect.php";
     session_start();
     $ext = null;
 

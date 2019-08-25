@@ -1,7 +1,7 @@
 <?php
 
     require "../global.php";
-	require "mysql-connect.php";
+	require "../mysql-connect.php";
 	session_start();
 
 	// Requesting user details
