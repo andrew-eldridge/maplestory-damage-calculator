@@ -300,10 +300,7 @@
 			}
 
 			if (isset($_POST["enemyHP"]) && ($_POST["enemyHP"] != "")) {
-                $enemyHP = (int)mysqli_real_escape_string($conn, $_POST["enemyHP"]);
-				if ($inputMode === "percentage") {
-					$enemyHP /= 100;
-				}
+                $enemyHP = (int)$_POST["enemyHP"];
 			} else {
 				$enemyHP = 0;
 			}
