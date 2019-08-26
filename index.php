@@ -37,7 +37,7 @@
 			$_SESSION["visitCount"] += 1;
 		} else {
 			$_SESSION["visitCount"] = 1;
-			$banner = "<div class='banner'>Thank your for choosing to visit <a href='../index.html'>Andrew Central</a>!</div>";
+			$banner = "<div class='banner'>Thank you for choosing to visit <a href='../index.html'>Andrew Central</a>!</div>";
 		}
 
 		// Meta data
