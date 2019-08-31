@@ -600,7 +600,7 @@
 			<h5><span class="details-toggle" tabindex="0" onclick="toggleDetails();">Show Details</span></h5>
 			<pre style="display:none;"><?php echo var_export($stats, true); ?></pre>
 		</fieldset>
-		<input class="submit" type="submit" value="Calculate Damage!">
+		<input class="submit" type="submit" value="Calculate Damage!" style="margin-top: 0;">
 		<button onclick="redirect('index.php');" class="submit return">Make Another Calculation</button>
 	</form>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -28,7 +28,7 @@
         }
 
         // Replace all spaces in class name with underscores (for valid file name)
-        $class = str_replace($class, "_", " ");
+        $class = str_replace(" ", "_", $class);
 
         // Determine the file extension
         if (strrpos($_FILES["battleAnalysis"]["name"], ".jpg") != null || strrpos($_FILES["battleAnalysis"]["name"], ".jpeg") != null) {
@@ -96,8 +96,8 @@
         <input type="hidden" name="class" value="<?php echo $class; ?>">
         <input type="submit" name="submit" class="submit" value="Submit Diagnostic">
     </form>
-    <form action="index.php">
-        <input type="submit" name="submit" class="submit" value="Return">
+    <form action="index.php" style="opacity: 1;">
+        <input type="submit" name="submit" class="submit" value="Return" style="margin-top: 0;">
     </form>
 </body>
 </html>
