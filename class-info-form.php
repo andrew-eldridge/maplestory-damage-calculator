@@ -90,8 +90,9 @@
         <fieldset id="input">
             <legend>Input</legend>
             <label for="battleAnalysis"><b>Upload an image of your battle analysis:</b></label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="300000">
-            <input id="battleAnalysis" name="battleAnalysis" type="file" accept="image/png, image/jpeg" required>
+            <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+            <input id="battleAnalysis" name="battleAnalysis" type="file" accept="image/png, image/jpeg" required><br/>
+            <label for="battleAnalysis">Max upload size: 2MB</label>
         </fieldset>
         <input type="hidden" name="class" value="<?php echo $class; ?>">
         <input type="submit" name="submit" class="submit" value="Submit Diagnostic">
