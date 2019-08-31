@@ -19,7 +19,16 @@
         // A form submission was made
 
         // Get class associated with the image
+        // If the class is FP or IL mage, remove forward slashes from name
         $class = $_POST["class"];
+        if ($class == "Fire/Poison Mage") {
+            $class = "FP Mage";
+        } else if ($class == "Ice/Lightning Mage") {
+            $class = "IL Mage";
+        }
+
+        // Replace all spaces in class name with underscores (for valid file name)
+        $class = str_replace($class, "_", " ");
 
         // Determine the file extension
         if (strrpos($_FILES["battleAnalysis"]["name"], ".jpg") != null || strrpos($_FILES["battleAnalysis"]["name"], ".jpeg") != null) {
@@ -81,11 +90,14 @@
         <fieldset id="input">
             <legend>Input</legend>
             <label for="battleAnalysis"><b>Upload an image of your battle analysis:</b></label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+            <input type="hidden" name="MAX_FILE_SIZE" value="300000">
             <input id="battleAnalysis" name="battleAnalysis" type="file" accept="image/png, image/jpeg" required>
         </fieldset>
         <input type="hidden" name="class" value="<?php echo $class; ?>">
         <input type="submit" name="submit" class="submit" value="Submit Diagnostic">
+    </form>
+    <form action="index.php">
+        <input type="submit" name="submit" class="submit" value="Return">
     </form>
 </body>
 </html>
