@@ -477,7 +477,7 @@
             }
 
         } else {
-            $banner = "<div class='banner'>More information is required on the {$class} class. <a href='class-info-form.php?c={$class}'>Click here</a>.</div>";
+            $banner = "<div class='banner'>More information is required on the {$class} class. <a href='class-info-form?c={$class}'>Click here</a>.</div>";
         }
 
 	}
@@ -496,7 +496,7 @@
 	<?php echo $banner; ?>
 	<img class="background-image" src="images/login.png">
 	<header>Maplestory Damage Calculator</header>
-	<form action="index.php" method="post">
+	<form action="index" method="post">
 		<fieldset>
 			<legend>Meta Configuration</legend>
 			<fieldset class="sub-fieldset">
@@ -601,7 +601,7 @@
 			<pre style="display:none;"><?php echo var_export($stats, true); ?></pre>
 		</fieldset>
 		<input class="submit" type="submit" value="Calculate Damage!" style="margin-top: 0;">
-		<button onclick="redirect('index.php');" class="submit return">Make Another Calculation</button>
+		<button onclick="redirect('index');" class="submit return">Make Another Calculation</button>
 	</form>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="scripts/main.js"></script>

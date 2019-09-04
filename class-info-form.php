@@ -43,7 +43,7 @@
 
         // Move temp file to new location
         if (move_uploaded_file($_FILES["battleAnalysis"]["tmp_name"], $path)) {
-            header("location: index.php?m=class-form-sub");
+            header("location: index?m=class-form-sub");
             exit;
         } else {
             echo("Upload failed");
@@ -65,7 +65,7 @@
 
         // Invalid request, sending user back to main app
         if (!isset($class)) {
-            header("location: index.php");
+            header("location: index");
             exit;
         }
 
@@ -82,7 +82,7 @@
 </head>
 <body>
     <header><?php echo $class; ?> Info Form</header>
-    <form action="class-info-form.php" method="post" enctype="multipart/form-data" style="opacity: 1;">
+    <form action="class-info-form" method="post" enctype="multipart/form-data" style="opacity: 1;">
         <fieldset id="instructions">
             <legend>Instructions</legend>
             <h3><b>Please perform a 1-minute battle analysis on a straw training dummy and upload a screenshot of the results</b></h3>
@@ -97,7 +97,7 @@
         <input type="hidden" name="class" value="<?php echo $class; ?>">
         <input type="submit" name="submit" class="submit" value="Submit Diagnostic">
     </form>
-    <form action="index.php" style="opacity: 1;">
+    <form action="index" style="opacity: 1;">
         <input type="submit" name="submit" class="submit" value="Return" style="margin-top: 0;">
     </form>
 </body>
